@@ -1,3 +1,4 @@
 [submodule "TheSuperiorCoin"]
 	path = TheSuperiorCoin
 	url = https://github.com/RomyToklio/TheSuperiorCoin.git
+	branch = SuperiorV14

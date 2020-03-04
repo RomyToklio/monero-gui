@@ -17,14 +17,14 @@ if [ ! -d $MONERO_DIR/src ]; then
 fi
 git submodule update --remote
 git -C $MONERO_DIR fetch
-git -C $MONERO_DIR checkout SuperiorV14
+git -C $MONERO_DIR checkout 325dbec921f12879870647a60445d8b49ec6827c
 
 # get monero core tag
 pushd $MONERO_DIR
 get_tag
 popd
 # create local monero branch
-git -C $MONERO_DIR checkout -B $VERSIONTAG
+#git -C $MONERO_DIR checkout -B $VERSIONTAG
 
 # Merge monero PR dependencies
 
