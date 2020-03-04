@@ -127,13 +127,13 @@ int main(int argc, char *argv[])
 
     MainApp app(argc, argv);
 
-    app.setApplicationName("monero-core");
+    app.setApplicationName("superior-core");
     app.setOrganizationDomain("getmonero.org");
     app.setOrganizationName("monero-project");
 
     // Ask to enable Tails OS persistence mode, it affects:
     // - Log file location
-    // - QML Settings file location (monero-core.conf)
+    // - QML Settings file location (superior-core.conf)
     // - Default wallets path
     // Target directory is: ~/Persistent/Monero
     if (isTails) {
@@ -175,19 +175,19 @@ int main(int argc, char *argv[])
     parser.addHelpOption();
     parser.process(app);
 
-    Monero::Utils::onStartup();
+    Superior::Utils::onStartup();
 
     // Log settings
     const QString logPath = getLogPath(parser.value(logPathOption));
-    Monero::Wallet::init(argv[0], "monero-wallet-gui", logPath.toStdString().c_str(), true);
+    Superior::Wallet::init(argv[0], "superior-wallet-gui", logPath.toStdString().c_str(), true);
     qInstallMessageHandler(messageHandler);
 
     // loglevel is configured in main.qml. Anything lower than
     // qWarning is not shown here unless MONERO_LOG_LEVEL env var is set
     bool logLevelOk;
     int logLevel = qEnvironmentVariableIntValue("MONERO_LOG_LEVEL", &logLevelOk);
-    if (logLevelOk && logLevel >= 0 && logLevel <= Monero::WalletManagerFactory::LogLevel_Max){
-        Monero::WalletManagerFactory::setLogLevel(logLevel);
+    if (logLevelOk && logLevel >= 0 && logLevel <= Superior::WalletManagerFactory::LogLevel_Max){
+        Superior::WalletManagerFactory::setLogLevel(logLevel);
     }
     qWarning().noquote() << "app startd" << "(log: " + logPath + ")";
 

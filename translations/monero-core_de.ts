@@ -1016,7 +1016,7 @@
     <message>
         <location filename="../pages/Mining.qml" line="65"/>
         <source>Your daemon must be synchronized before you can start mining</source>
-        <translation>Der Hintergrunddienst (monerod) muss mit dem Netzwerk synchronisiert sein, bevor mit dem Mining begonnen werden kann.</translation>
+        <translation>Der Hintergrunddienst (superiord) muss mit dem Netzwerk synchronisiert sein, bevor mit dem Mining begonnen werden kann.</translation>
     </message>
     <message>
         <location filename="../pages/Mining.qml" line="99"/>
@@ -1100,7 +1100,7 @@ Das Mining bietet dir die Möglichkeit, Monero zu verdienen. Dein Computer errec
     <message>
         <location filename="../pages/Mining.qml" line="203"/>
         <source>Mining is only available on local daemons. Run a local daemon to be able to mine.&lt;br&gt;</source>
-        <translation>Mining ist nur mit einem lokalen Hintergrunddienst verfügbar. Starte den lokalen Hintergrunddienst (monerod), um zu minen.&lt;br&gt;</translation>
+        <translation>Mining ist nur mit einem lokalen Hintergrunddienst verfügbar. Starte den lokalen Hintergrunddienst (superiord), um zu minen.&lt;br&gt;</translation>
     </message>
     <message>
         <location filename="../pages/Mining.qml" line="214"/>

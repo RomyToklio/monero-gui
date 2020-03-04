@@ -67,9 +67,9 @@ If you need help/support or any info you can contact the localization workgroup 
 
 Packages are available for
 
-* Arch Linux via AUR: [monero-wallet-qt](https://aur.archlinux.org/packages/monero-wallet-qt/)
-* Void Linux: xbps-install -S monero-core
-* GuixSD: guix package -i monero-core
+* Arch Linux via AUR: [superior-wallet-qt](https://aur.archlinux.org/packages/superior-wallet-qt/)
+* Void Linux: xbps-install -S superior-core
+* GuixSD: guix package -i superior-core
 
 Packaging for your favorite distribution would be a welcome contribution!
 

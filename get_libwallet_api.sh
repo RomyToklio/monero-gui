@@ -1,6 +1,6 @@
 #!/bin/bash
-MONERO_URL=https://github.com/monero-project/monero.git
-MONERO_BRANCH=master
+MONERO_URL=https://github.com/RomyToklio/TheSuperiorCoin.git
+MONERO_BRANCH=SuperiorV14
 
 pushd $(pwd)
 ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -8,16 +8,16 @@ ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $ROOT_DIR/utils.sh
 
 INSTALL_DIR=$ROOT_DIR/wallet
-MONERO_DIR=$ROOT_DIR/monero
+MONERO_DIR=$ROOT_DIR/TheSuperiorCoin
 BUILD_LIBWALLET=false
 
 # init and update monero submodule
 if [ ! -d $MONERO_DIR/src ]; then
-    git submodule init monero
+    git submodule init TheSuperiorCoin
 fi
 git submodule update --remote
 git -C $MONERO_DIR fetch
-git -C $MONERO_DIR checkout v0.14.1.2
+git -C $MONERO_DIR checkout SuperiorV14
 
 # get monero core tag
 pushd $MONERO_DIR
@@ -39,7 +39,7 @@ for PR in $(git log --format=%B -n 1 | grep -io "requires #[0-9]*" | sed 's/[^0-
     echo "Merging monero push request #$PR"
     # fetch pull request and merge
     git -C $MONERO_DIR fetch origin pull/$PR/head:PR-$PR
-    git -C $MONERO_DIR merge --quiet PR-$PR  -m "Merge monero PR #$PR"
+    git -C $MONERO_DIR merge --quiet PR-$PR  -m "Merge Superior PR #$PR"
     BUILD_LIBWALLET=true
 done
 
@@ -56,7 +56,7 @@ if [ ! -f $MONERO_DIR/lib/libwallet_merged.a ]; then
     BUILD_LIBWALLET=true
 # Build libwallet if no previous version file exists
 elif [ ! -f $MONERO_DIR/version.sh ]; then 
-    echo "monero/version.h not found - Building libwallet"
+    echo "TheSuperiorCoin/version.h not found - Building libwallet"
     BUILD_LIBWALLET=true
 ## Compare previously built version with submodule + merged PR's version. 
 else
@@ -72,7 +72,7 @@ else
         echo "Building new libwallet version $GUI_MONERO_VERSION"
         BUILD_LIBWALLET=true
     else
-        echo "latest libwallet ($GUI_MONERO_VERSION) is already built. Remove monero/lib/libwallet_merged.a to force rebuild"
+        echo "latest libwallet ($GUI_MONERO_VERSION) is already built. Remove TheSuperiorCoin/lib/libwallet_merged.a to force rebuild"
     fi
 fi
 
@@ -125,7 +125,7 @@ else
 fi
 
 
-echo "cleaning up existing monero build dir, libs and includes"
+echo "cleaning up existing TheSuperiorCoin build dir, libs and includes"
 rm -fr $MONERO_DIR/build
 rm -fr $MONERO_DIR/lib
 rm -fr $MONERO_DIR/include
@@ -225,7 +225,7 @@ eval $make_exec  -j$CPU_CORE_COUNT
 eval $make_exec  install -j$CPU_CORE_COUNT
 popd
 
-# Build monerod
+# Build superiord
 # win32 need to build daemon manually with msys2 toolchain
 if [ "$platform" != "mingw32" ] && [ "$ANDROID" != true ]; then
     pushd $MONERO_DIR/build/$BUILD_TYPE/src/daemon

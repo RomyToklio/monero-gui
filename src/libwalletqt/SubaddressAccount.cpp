@@ -29,14 +29,14 @@
 #include "SubaddressAccount.h"
 #include <QDebug>
 
-SubaddressAccount::SubaddressAccount(Monero::SubaddressAccount *subaddressAccountImpl, QObject *parent)
+SubaddressAccount::SubaddressAccount(Superior::SubaddressAccount *subaddressAccountImpl, QObject *parent)
   : QObject(parent), m_subaddressAccountImpl(subaddressAccountImpl)
 {
     qDebug(__FUNCTION__);
     getAll();
 }
 
-QList<Monero::SubaddressAccountRow*> SubaddressAccount::getAll(bool update) const
+QList<Superior::SubaddressAccountRow*> SubaddressAccount::getAll(bool update) const
 {
     qDebug(__FUNCTION__);
 
@@ -55,7 +55,7 @@ QList<Monero::SubaddressAccountRow*> SubaddressAccount::getAll(bool update) cons
     return m_rows;
 }
 
-Monero::SubaddressAccountRow * SubaddressAccount::getRow(int index) const
+Superior::SubaddressAccountRow * SubaddressAccount::getRow(int index) const
 {
     return m_rows.at(index);
 }

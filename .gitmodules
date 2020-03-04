@@ -1,4 +1,4 @@
-[submodule "monero"]
-	path = monero
-	url = https://github.com/monero-project/monero
-	ignore = all
+[submodule "TheSuperiorCoin"]
+	path = TheSuperiorCoin
+	url = https://github.com/RomyToklio/TheSuperiorCoin.git
+	branch = SuperiorV14

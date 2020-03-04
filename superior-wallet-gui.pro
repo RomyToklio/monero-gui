@@ -7,7 +7,7 @@ TEMPLATE = app
 
 QT += svg qml gui-private quick widgets
 
-WALLET_ROOT=$$PWD/monero
+WALLET_ROOT=$$PWD/TheSuperiorCoin
 
 CONFIG += c++11 link_pkgconfig
 packagesExist(libusb-1.0) {
@@ -495,7 +495,7 @@ OTHER_FILES += \
 
 DISTFILES += \
     notes.txt \
-    monero/src/wallet/CMakeLists.txt
+    TheSuperiorCoin/src/wallet/CMakeLists.txt
 
 
 # windows application icon
